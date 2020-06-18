@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>example-riddler-solution.utf8</title>
+    <meta charset="utf-8" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+*bind_rows(start_grid, end_grid)
+```
+]
+ 
+.right-panel-riddler-map-auto[
+
+```
+# A tibble: 68 x 6
+       x     y  xend  yend index  time
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+ 1    -8    -8    -8     8     1     1
+ 2    -7    -8    -7     8     2     1
+ 3    -6    -8    -6     8     3     1
+ 4    -5    -8    -5     8     4     1
+ 5    -4    -8    -4     8     5     1
+ 6    -3    -8    -3     8     6     1
+ 7    -2    -8    -2     8     7     1
+ 8    -1    -8    -1     8     8     1
+ 9     0    -8     0     8     9     1
+10     1    -8     1     8    10     1
+# ... with 58 more rows
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+* ggplot()
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_2_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+* aes(x = x)
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_3_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+  aes(x = x)+  
+* aes(y = y)
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_4_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+  aes(x = x)+  
+  aes(y = y)+  
+* geom_segment(aes(xend = xend, yend = yend, group = index, colour = time))
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_5_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+  aes(x = x)+  
+  aes(y = y)+  
+  geom_segment(aes(xend = xend, yend = yend, group = index, colour = time))+  
+* geom_text(aes(label = symbol), data = house_points, size = 8)
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_6_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+  aes(x = x)+  
+  aes(y = y)+  
+  geom_segment(aes(xend = xend, yend = yend, group = index, colour = time))+  
+  geom_text(aes(label = symbol), data = house_points, size = 8)+  
+* geom_label(aes(label = "Riddler\nCity Hall"), data = city_hall, size = 8, color = "brown")
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_7_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+  aes(x = x)+  
+  aes(y = y)+  
+  geom_segment(aes(xend = xend, yend = yend, group = index, colour = time))+  
+  geom_text(aes(label = symbol), data = house_points, size = 8)+  
+  geom_label(aes(label = "Riddler\nCity Hall"), data = city_hall, size = 8, color = "brown")+  
+* scale_colour_gradient(low = "black", high = "royalblue3")
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_8_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+  aes(x = x)+  
+  aes(y = y)+  
+  geom_segment(aes(xend = xend, yend = yend, group = index, colour = time))+  
+  geom_text(aes(label = symbol), data = house_points, size = 8)+  
+  geom_label(aes(label = "Riddler\nCity Hall"), data = city_hall, size = 8, color = "brown")+  
+  scale_colour_gradient(low = "black", high = "royalblue3")+  
+* scale_x_continuous(breaks = -3L:3L, minor_breaks = NULL)
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_9_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+  aes(x = x)+  
+  aes(y = y)+  
+  geom_segment(aes(xend = xend, yend = yend, group = index, colour = time))+  
+  geom_text(aes(label = symbol), data = house_points, size = 8)+  
+  geom_label(aes(label = "Riddler\nCity Hall"), data = city_hall, size = 8, color = "brown")+  
+  scale_colour_gradient(low = "black", high = "royalblue3")+  
+  scale_x_continuous(breaks = -3L:3L, minor_breaks = NULL)+  
+* scale_y_continuous(breaks = -3L:3L, minor_breaks = NULL)
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_10_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+  aes(x = x)+  
+  aes(y = y)+  
+  geom_segment(aes(xend = xend, yend = yend, group = index, colour = time))+  
+  geom_text(aes(label = symbol), data = house_points, size = 8)+  
+  geom_label(aes(label = "Riddler\nCity Hall"), data = city_hall, size = 8, color = "brown")+  
+  scale_colour_gradient(low = "black", high = "royalblue3")+  
+  scale_x_continuous(breaks = -3L:3L, minor_breaks = NULL)+  
+  scale_y_continuous(breaks = -3L:3L, minor_breaks = NULL)+  
+* coord_fixed(xlim = c(-3, 3), ylim = c(-3, 3))
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_11_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+  aes(x = x)+  
+  aes(y = y)+  
+  geom_segment(aes(xend = xend, yend = yend, group = index, colour = time))+  
+  geom_text(aes(label = symbol), data = house_points, size = 8)+  
+  geom_label(aes(label = "Riddler\nCity Hall"), data = city_hall, size = 8, color = "brown")+  
+  scale_colour_gradient(low = "black", high = "royalblue3")+  
+  scale_x_continuous(breaks = -3L:3L, minor_breaks = NULL)+  
+  scale_y_continuous(breaks = -3L:3L, minor_breaks = NULL)+  
+  coord_fixed(xlim = c(-3, 3), ylim = c(-3, 3))+  
+* theme_minimal()
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_12_output-1.png" width="432" /&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-riddler-map-auto[
+
+```r
+bind_rows(start_grid, end_grid) %&gt;%  
+  ggplot()+  
+  aes(x = x)+  
+  aes(y = y)+  
+  geom_segment(aes(xend = xend, yend = yend, group = index, colour = time))+  
+  geom_text(aes(label = symbol), data = house_points, size = 8)+  
+  geom_label(aes(label = "Riddler\nCity Hall"), data = city_hall, size = 8, color = "brown")+  
+  scale_colour_gradient(low = "black", high = "royalblue3")+  
+  scale_x_continuous(breaks = -3L:3L, minor_breaks = NULL)+  
+  scale_y_continuous(breaks = -3L:3L, minor_breaks = NULL)+  
+  coord_fixed(xlim = c(-3, 3), ylim = c(-3, 3))+  
+  theme_minimal()+  
+* theme(axis.text = element_blank(),
+*       axis.title = element_blank(),
+*       legend.position = "none",
+*       panel.border = element_rect(colour = "black", fill=NA, size=1))
+```
+]
+ 
+.right-panel-riddler-map-auto[
+&lt;img src="example-riddler-solution_files/figure-html/riddler-map_auto_13_output-1.png" width="432" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-riddler-map-auto {
+  color: #777;
+  width: 49%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-riddler-map-auto {
+  width: 50%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-riddler-map-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+&lt;style type="text/css"&gt;
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
+&lt;/style&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "20:10",
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": ""
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
