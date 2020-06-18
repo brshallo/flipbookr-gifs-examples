@@ -9,7 +9,7 @@ The `flipbookr` package contains functions for creating gifs of flipbooks via th
 # Steps
 
 1. Create your flipbook with `flipbookr`
-2. Add the following css (either to a new css file or you can just add it as a code chunk directly into your RMD -- as I do in the examples). For context on why this is necessary, see [EvaMaeRey/flipbookr#21](https://github.com/EvaMaeRey/flipbookr/issues/21)
+2. Add the following css (can just add it as a code chunk directly into your RMD -- as I do in the examples). For context on why this is necessary, see [EvaMaeRey/flipbookr#21](https://github.com/EvaMaeRey/flipbookr/issues/21)
 
   ```css
   @media print {
