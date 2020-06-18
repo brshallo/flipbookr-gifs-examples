@@ -31,7 +31,7 @@ Inspired by the [Many Models](https://r4ds.had.co.nz/many-models.html) chapter f
 
 **Second example:**
 
-Pulled from a [prior blog post]((https://www.bryanshalloway.com/2020/03/04/riddler-solutions-pedestrian-puzzles/) where I solve a hypothetical city planning riddle.
+Pulled from a [prior blog post](https://www.bryanshalloway.com/2020/03/04/riddler-solutions-pedestrian-puzzles/) where I solve a hypothetical city planning riddle.
 
 Here is the *original animation*:
 
@@ -40,6 +40,8 @@ Here is the *original animation*:
 And here is a gif of the flipbook of it being built:
 
 ![](https://github.com/brshallo/flipbookr-gifs-examples/blob/master/example-riddler-solution.gif)
+
+(Though drop final `gganimate::transition_states()` step here.)
 
 # Other notes
 
