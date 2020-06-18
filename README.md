@@ -1,11 +1,11 @@
 # Gifs of flipbooks
 
-Examples of building gifs of flipbooks using [flipbookr](https://github.com/EvaMaeRey/flipbookr) --> [pagedown](https://github.com/rstudio/pagedown) --> [magick](https://github.com/ropensci/magick) meant to supplement issue on EvaMaeRey/flipbookr .
+Examples of building gifs of flipbooks using [flipbookr](https://github.com/EvaMaeRey/flipbookr) --> [pagedown](https://github.com/rstudio/pagedown) --> [magick](https://github.com/ropensci/magick) meant to supplement issue on [EvaMaeRey/flipbookr#22](https://github.com/EvaMaeRey/flipbookr/issues/22).
 
 *Steps:*
 
 1. Create your flipbook with `flipbookr`
-2. Add the following css (either to a new css file or you can just add it as a code chunk directly into your RMD -- as I do in the examples). For context on why this is necessary, see EvaMaeRey/flipbookr#21
+2. Add the following css (either to a new css file or you can just add it as a code chunk directly into your RMD -- as I do in the examples). For context on why this is necessary, see [EvaMaeRey/flipbookr#21](https://github.com/EvaMaeRey/flipbookr/issues/21)
 
   ```css
   @media print {
@@ -15,7 +15,7 @@ Examples of building gifs of flipbooks using [flipbookr](https://github.com/EvaM
   }
   ```
 
-3. Use the function in "render_flipbook-gif-examples.R" to specify the RMD file of your flipbook and run (will create html, pdf, and gif outputs of your file)
+3. Use the function `flipbook_to_gif()` in "render_flipbook-gif-examples.R" to specify the RMD file of your flipbook and run (will create html, pdf, and gif outputs of your file)
 
 # Examples of flipbookr gifs
 
@@ -23,19 +23,20 @@ Examples of building gifs of flipbooks using [flipbookr](https://github.com/EvaM
 
 Inspired by the [Many Models](https://r4ds.had.co.nz/many-models.html) chapter for "R for Data Science," *Grolemund*, *Wickham*.
 
-... flipbook ...
+![](https://github.com/brshallo/flipbookr-gifs-examples/blob/master/example-r4ds.gif?raw=true)
 
 **Second example:**
 
 *Pulled from a prior blog post of mine where I solve a hypothetical [city planning riddle](https://www.bryanshalloway.com/2020/03/04/riddler-solutions-pedestrian-puzzles/).
 
-Here is the original animation:
+Here is the *original animation*:
 
 ![](https://www.bryanshalloway.com/post/2020-03-04-riddler-solutions-pedestrian-puzzles_files/gif_city_pretty_grids.gif)
 
-And here is a gif of it's layers via a flipbook:
+And here is a gif of the flipbook of it being built:
 
-... flipbook ...
+![](https://github.com/brshallo/flipbookr-gifs-examples/blob/master/example-riddler-solution.gif)
+
 
 # Context
 
@@ -50,3 +51,5 @@ if (!requireNamespace("animatrixr")) devtools::install_github('brshallo/animatri
 if (!requireNamespace("emo")) devtools::install_github('hadley/emo')
 if (!requireNamespace("flipbookr")) devtools::install_github('EvaMaeRey/flipbookr')
 ```
+
+* The second example also had sporadic issues when rendering via the `flipbook_to_gif()` function...

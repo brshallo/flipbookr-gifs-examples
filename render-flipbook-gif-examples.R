@@ -20,4 +20,3 @@ flipbook_to_gif(here::here("example-r4ds.Rmd"))
 # create gif of flipbook of visual made in prior blog
 flipbook_to_gif(here::here("example-riddler-solution.Rmd"))
 
-pagedown::chrome_print(here::here("example-riddler-solution.Rmd"))
