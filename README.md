@@ -43,6 +43,14 @@ And here is a gif of the flipbook of it being built:
 
 (Though drop final `gganimate::transition_states()` step here.)
 
+** Third example:**
+
+Comes from `flipbookr`s "minimal-flipbook" starting template:
+
+__ex__
+
+Shows that most types of flipbooking options can render nicely into a gif.
+
 # Other notes
 
 My second flipbook gif example uses some packages that are only available on github...
@@ -52,5 +60,3 @@ if (!requireNamespace("animatrixr")) devtools::install_github('brshallo/animatri
 if (!requireNamespace("emo")) devtools::install_github('hadley/emo')
 if (!requireNamespace("flipbookr")) devtools::install_github('EvaMaeRey/flipbookr')
 ```
-
-* The second example also had sporadic issues when rendering via the `flipbook_to_gif()` function...
