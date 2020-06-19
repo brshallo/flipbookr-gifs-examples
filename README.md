@@ -39,7 +39,7 @@ And here is a gif of the flipbook of it being built:
 
 (Though drop final `gganimate::transition_states()` step here.)
 
-** Third example:**
+**Third example:**
 
 Comes from `flipbookr`s "minimal-flipbook" starting template:
 
