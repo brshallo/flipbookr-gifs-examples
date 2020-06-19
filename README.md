@@ -43,7 +43,7 @@ And here is a gif of the flipbook of it being built:
 
 Comes from `flipbookr`s "minimal-flipbook" starting template:
 
-![](https://github.com/brshallo/flipbookr-gifs-examples/blob/master/example-r4ds.gif?raw=true)
+![](https://github.com/brshallo/flipbookr-gifs-examples/blob/master/minimal-flipbook.gif?raw=true)
 
 Shows that most types of flipbooking options can render nicely into a gif.
 
