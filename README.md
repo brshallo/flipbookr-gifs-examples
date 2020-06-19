@@ -2,10 +2,6 @@
 
 Examples of building gifs of flipbooks using [flipbookr](https://github.com/EvaMaeRey/flipbookr) --> [pagedown](https://github.com/rstudio/pagedown) --> [magick](https://github.com/ropensci/magick) meant to supplement issue on [EvaMaeRey/flipbookr#22](https://github.com/EvaMaeRey/flipbookr/issues/22).
 
-# Context
-
-The `flipbookr` package contains functions for creating gifs of flipbooks via the `flipbookr::code_create_gif_flipbook()` or `flipbookr::chunk_create_gif_flipbook()`. However per conversation on [thread](https://twitter.com/EvaMaeRey/status/1273107587265892353) there was interest in exploring using a `pagedown` rather than `webshot` based approach (that could be more reliable in certain instances).
-
 # Steps
 
 1. Create your flipbook with `flipbookr`
@@ -47,9 +43,13 @@ And here is a gif of the flipbook of it being built:
 
 Comes from `flipbookr`s "minimal-flipbook" starting template:
 
-__ex__
+![](https://github.com/brshallo/flipbookr-gifs-examples/blob/master/example-r4ds.gif?raw=true)
 
 Shows that most types of flipbooking options can render nicely into a gif.
+
+# Context
+
+The `flipbookr` package contains functions for creating gifs of flipbooks via the `flipbookr::code_create_gif_flipbook()` or `flipbookr::chunk_create_gif_flipbook()`. However per conversation on [thread](https://twitter.com/EvaMaeRey/status/1273107587265892353) there was interest in exploring using a `pagedown` rather than `webshot` based approach (that could be more reliable in certain instances).
 
 # Other notes
 
