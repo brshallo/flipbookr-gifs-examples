@@ -60,3 +60,9 @@ if (!requireNamespace("animatrixr")) devtools::install_github('brshallo/animatri
 if (!requireNamespace("emo")) devtools::install_github('hadley/emo')
 if (!requireNamespace("flipbookr")) devtools::install_github('EvaMaeRey/flipbookr')
 ```
+
+# Superseded
+
+Documentation on converting flipbooks into gifs has been added to `{flipbookr}` [documentation](https://github.com/EvaMaeRey/flipbookr/blob/fc175bc8aaf39b0fe4a9937a3ddd603166f85c21/inst/rmarkdown/templates/most-features/skeleton/skeleton.Rmd#L958).
+
+[{xaringanBuilder}](https://github.com/jhelvy/xaringanBuilder) has become the go-to package for converting xaringan slides (which flipbooks use) into different output formats (including gifs).
